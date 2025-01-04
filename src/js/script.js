@@ -83,11 +83,11 @@
     }
 
     initAmountWidget() {
-       const thisProduct = this;
-       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem)
-       thisProduct.amountWidgetElem.addEventListener('updated', function() {
-       thisProduct.processOrder();
-       })
+      const thisProduct = this;
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+      thisProduct.amountWidgetElem.addEventListener('updated', function() {
+        thisProduct.processOrder();
+      });
     }
       
     initAccordion(){
@@ -169,9 +169,9 @@
       const thisWidget = this;
       thisWidget.getElements(element);
       if (thisWidget.input.value) {
-        thisWidget.setValue(thisWidget.input.value)
+        thisWidget.setValue(thisWidget.input.value);
       } else {
-        thisWidget.setValue(settings.amountWidget.defaultValue)
+        thisWidget.setValue(settings.amountWidget.defaultValue);
       }
       thisWidget.initActions();
     }
@@ -201,17 +201,17 @@
 
     initActions() {
       const thisWidget = this;
-      thisWidget.input.addEventListener('change', function(e) {
+      thisWidget.input.addEventListener('change', function() {
         thisWidget.setValue(thisWidget.input.value);
-    })
-        thisWidget.linkDecrease.addEventListener('click', function(e) {
-        e.preventDefault()
-        thisWidget.setValue(thisWidget.input.value - 1)
-    })  
-    thisWidget.linkIncrease.addEventListener('click', function(e) {
-      e.preventDefault()
-      thisWidget.setValue(parseInt(thisWidget.input.value) + 1)
-   })  
+      });
+      thisWidget.linkDecrease.addEventListener('click', function(e) {
+        e.preventDefault();
+        thisWidget.setValue(thisWidget.input.value - 1);
+      });  
+      thisWidget.linkIncrease.addEventListener('click', function(e) {
+        e.preventDefault();
+        thisWidget.setValue(parseInt(thisWidget.input.value) + 1);
+      });
     }
 
     announce() {
