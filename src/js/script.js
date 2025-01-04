@@ -160,8 +160,6 @@
         
       }
       price *= thisProduct.amountWidget.value;
-      console.log('price',price);
-      console.log('thisProduct.amountWidget.value',thisProduct.amountWidget.value);
       thisProduct.priceElem.innerHTML = price;
     }
   }
@@ -176,9 +174,6 @@
         thisWidget.setValue(settings.amountWidget.defaultValue)
       }
       thisWidget.initActions();
-
-      console.log('AmountWidget',thisWidget);
-      console.log('constructor arguments',element);
     }
 
     getElements(element){
@@ -198,7 +193,6 @@
       if(thisWidget.value !== newValue && !isNaN(newValue) && newValue <=10 && newValue >= 0 ) {
         thisWidget.value = newValue;
         thisWidget.announce();
-        console.log('thisWidget.announce');
       }
       thisWidget.input.value = thisWidget.value;
 
@@ -216,7 +210,7 @@
     })  
     thisWidget.linkIncrease.addEventListener('click', function(e) {
       e.preventDefault()
-      thisWidget.setValue(parseInt(thisWidget.input.value) + 1) // do wyjaśnienia
+      thisWidget.setValue(parseInt(thisWidget.input.value) + 1)
    })  
     }
 
