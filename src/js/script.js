@@ -419,7 +419,16 @@
         body: JSON.stringify(payload),
       };
       
-      fetch(url, options);
+      fetch(url, options)
+        .then(function(rawResponse) {
+          if(!rawResponse.ok) {
+            throw new Error(`Error! Status: ${rawResponse.status}, URL: ${url}`);
+          }
+          return rawResponse.json();
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
 
   }
@@ -520,11 +529,17 @@
 
       fetch(url)
         .then(function(rawResponse) {
+          if (!rawResponse.ok) {
+            throw new Error(`Error! Status: ${rawResponse.status}, URL: ${url}`);
+          }
           return rawResponse.json();
         })
         .then(function(parsedResponse){
           thisApp.data.products = parsedResponse;
           thisApp.initMenu();
+        })
+        .catch(error => {
+          console.log(error);
         });
     },
 
