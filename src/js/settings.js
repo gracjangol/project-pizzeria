@@ -37,6 +37,17 @@ export const select = {
         output: '.output',
       }
     },
+    datePicker: {
+      wrapper: '.date-picker',
+      input: `input[name="date"]`,
+    },
+    hourPicker: {
+      wrapper: '.hour-picker',
+      input: 'input[type="range"]',
+      output: '.output',
+    },
+
+
     booking: {
       peopleAmount: '.people-amount',
       hoursAmount: '.hours-amount',
@@ -108,11 +119,11 @@ export const settings = {
     repeatParam: 'repeat_ne=false',
   },
   hours: {
-    open: 12,
+    open: 5,
     close: 24,
   },
   datePicker: {
-    maxDaysInFuture: 14,
+    maxDaysInFuture: 12,
   },
   booking: {
     tableIdAttribute: 'data-table',
