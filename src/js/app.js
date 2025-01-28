@@ -24,8 +24,8 @@ const app = {
 
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function(event){
-        const clickedElement = this;
         event.preventDefault();
+        const clickedElement = this;
 
         const id = clickedElement.getAttribute('href').replace('#', '');
         thisApp.activatePage(id);
