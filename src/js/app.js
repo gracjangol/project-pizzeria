@@ -24,7 +24,6 @@ const app = {
 
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function(event){
-        event.preventDefault();
         const clickedElement = this;
         event.preventDefault();
 
