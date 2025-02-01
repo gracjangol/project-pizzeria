@@ -12,6 +12,7 @@ export const select = {
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    floorPlan: '.floor-plan',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -89,6 +90,7 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    selected: 'selected',
   },
   nav: {
     active: 'active',
@@ -108,7 +110,7 @@ export const settings = {
     defaultDeliveryFee: 20,
   },
   db: {
-    url: '//localhost:3131',
+    url: '//localhost:3132',
     products: 'products',
     orders: 'orders',
     bookings: 'bookings',
