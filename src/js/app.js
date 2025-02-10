@@ -1,14 +1,21 @@
-import {settings, select, classNames} from './settings.js';
+import {select, settings, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 const app = {
 
   initPages: function(){
     const thisApp = this;
+
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+
+    thisApp.quickLinks = document.querySelectorAll(select.home.links);
+
+    console.log('select.home.links', select.home.links);
+    console.log('thisApp.quickLinks', thisApp.quickLinks);
 
     const idFromHash = window.location.hash.replace('#/', '');
     let pageMatchingHash = thisApp.pages[0].id;
@@ -33,6 +40,7 @@ const app = {
         window.location.hash = '#/' + id;
       });
     }
+
   },
 
   activatePage: function(pageId){
@@ -40,7 +48,7 @@ const app = {
     for (let page of thisApp.pages) {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
-    
+
     for (let link of thisApp.navLinks) {
       link.classList.toggle(
         classNames.nav.active,
@@ -52,7 +60,7 @@ const app = {
   initBooking: function(){
     const bookingWidget = document.querySelector(select.containerOf.booking);
     new Booking(bookingWidget);
-  },  
+  },
 
   initMenu: function(){
     const thisApp = this;
@@ -61,6 +69,26 @@ const app = {
     }
   },
 
+  initHome: function(){
+    new Home();
+    const thisApp = this;
+  
+    thisApp.quickLinks = document.querySelectorAll(select.home.links);
+    console.log('quickLinks after Home init:', thisApp.quickLinks);
+    
+    for (let link of thisApp.quickLinks) {
+      link.addEventListener('click', function(event){
+        event.preventDefault();
+        const clickedElement = this;
+  
+        const id = clickedElement.getAttribute('href').replace('#', '');
+        thisApp.activatePage(id);
+  
+        window.location.hash = '#/' + id;
+      });
+    }
+  },
+  
   initCart: function() {
     const thisApp = this;
     const cartElem = document.querySelector(select.containerOf.cart);
@@ -96,11 +124,11 @@ const app = {
 
   init: function(){
     const thisApp = this;
-    
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initHome();
   },
 };
 
