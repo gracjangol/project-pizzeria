@@ -14,9 +14,6 @@ const app = {
 
     thisApp.quickLinks = document.querySelectorAll(select.home.links);
 
-    console.log('select.home.links', select.home.links);
-    console.log('thisApp.quickLinks', thisApp.quickLinks);
-
     const idFromHash = window.location.hash.replace('#/', '');
     let pageMatchingHash = thisApp.pages[0].id;
 
@@ -74,7 +71,6 @@ const app = {
     const thisApp = this;
   
     thisApp.quickLinks = document.querySelectorAll(select.home.links);
-    console.log('quickLinks after Home init:', thisApp.quickLinks);
     
     for (let link of thisApp.quickLinks) {
       link.addEventListener('click', function(event){

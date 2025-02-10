@@ -16,7 +16,6 @@ class Home {
     thisHome.dom.wrapper.innerHTML = generatedHTML;
 
     thisHome.dom.carousel = thisHome.dom.wrapper.querySelector(select.containerOf.carousel);
-    console.log('thisHome.dom.carousel:', thisHome.dom.carousel);
   }
 
   initWidgets() {
